@@ -38,7 +38,7 @@ class TextGenerationPipeline {
       progress_callback,
     });
 
-	config = GenerationConfig.from_pretrained("genai_config.json")
+	//config = GenerationConfig.from_pretrained("genai_config.json")
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
       dtype: "", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
       device: "webgpu",
