@@ -218,7 +218,7 @@ function App() {
                 rel="noreferrer"
                 className="font-medium underline"
               >
-                DeepSeek-R1-Distill-Qwen-1.5B
+                DeepSeek-R1-Distill-Qwen-7B
               </a>
               , a 1.5B parameter reasoning LLM optimized for in-browser
               inference. Everything runs entirely in your browser with{" "}
