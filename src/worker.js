@@ -38,12 +38,12 @@ class TextGenerationPipeline {
       progress_callback,
     });
 
-	//config = GenerationConfig.from_pretrained("genai_config.json")
+	conf = GenerationConfig({config_file_name: "genai_config.json"});
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
       dtype: "auto", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
       device: "webgpu",
       progress_callback,
-	  config_file_name: "genai_config.json",
+	  config: conf,
     });
 
     return Promise.all([this.tokenizer, this.model]);
