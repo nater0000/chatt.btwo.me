@@ -39,7 +39,7 @@ class TextGenerationPipeline {
     });
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
-      dtype: "bnb4", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
+      dtype: "", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
       device: "webgpu",
       progress_callback,
     });
