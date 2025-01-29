@@ -3,6 +3,7 @@ import {
   AutoModelForCausalLM,
   TextStreamer,
   InterruptableStoppingCriteria,
+  GenerationConfig,
 } from "@huggingface/transformers";
 
 /**
