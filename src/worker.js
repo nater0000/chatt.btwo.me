@@ -39,7 +39,7 @@ class TextGenerationPipeline {
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
       //dtype: "q4f16",
-      dtype: "None", // auto-detect
+      dtype: "q4_k_m", // auto-detect
       device: "webgpu",
       progress_callback,
     });
