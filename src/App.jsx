@@ -213,7 +213,7 @@ function App() {
               <br />
               You are about to load{" "}
               <a
-                href="https://huggingface.co/onnx-community/DeepSeek-R1-Distill-Qwen-1.5B-ONNX"
+                href="https://huggingface.co/gaianet/DeepSeek-R1-Distill-Qwen-7B-GGUF"
                 target="_blank"
                 rel="noreferrer"
                 className="font-medium underline"
