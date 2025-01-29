@@ -30,7 +30,7 @@ async function check() {
 class TextGenerationPipeline {
   //static model_id = "onnx-community/DeepSeek-R1-Distill-Qwen-2.5B-ONNX";
   //static model_id = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B";
-  static model_id = "mlc-ai/DeepSeek-R1-Distill-Qwen-7B-q4f16_1-MLC";
+  static model_id = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B";
 
   static async getInstance(progress_callback = null) {
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
