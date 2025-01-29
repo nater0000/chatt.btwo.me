@@ -30,7 +30,7 @@ async function check() {
 class TextGenerationPipeline {
   //static model_id = "onnx-community/DeepSeek-R1-Distill-Qwen-2.5B-ONNX";
   //static model_id = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B";
-  static model_id = "unsloth/DeepSeek-R1-Distill-Qwen-7B-unsloth-bnb-4bit";
+  static model_id = "mlc-ai/DeepSeek-R1-Distill-Qwen-7B-q4f16_1-MLC";
 
   static async getInstance(progress_callback = null) {
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
@@ -38,8 +38,8 @@ class TextGenerationPipeline {
     });
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
-      //dtype: "q4f16",
-      dtype: "q4_k_m", // auto-detect
+      dtype: "q4f16",
+      //dtype: "q4_k_m", // auto-detect
       device: "webgpu",
       progress_callback,
     });
