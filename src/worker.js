@@ -31,18 +31,18 @@ async function check() {
 class TextGenerationPipeline {
   //static model_id = "onnx-community/DeepSeek-R1-Distill-Qwen-2.5B-ONNX";
   //static model_id = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B";
-  //static model_id = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B";
-  static model_id = "lokinfey/DeepSeek-R1-Distill-Qwen-7B-INT4-ONNX"
+  static model_id = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B";
+  //static model_id = "lokinfey/DeepSeek-R1-Distill-Qwen-7B-INT4-ONNX"
 
   static async getInstance(progress_callback = null) {
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
       progress_callback,
     });
 
-	conf ??= AutoConfig.from_pretrained("lokinfey/DeepSeek-R1-Distill-Qwen-7B-INT4-ONNX/genai_config.json");
-    //this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
-    this.model ??= AutoModelForCausalLM.from_config(conf, {
-      //dtype: "auto", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
+	//static conf ??= AutoConfig.from_pretrained("lokinfey/DeepSeek-R1-Distill-Qwen-7B-INT4-ONNX/genai_config.json");
+    this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
+    //this.model ??= AutoModelForCausalLM.from_config(this.conf, {
+      dtype: "auto", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
       device: "webgpu",
       progress_callback,
     });
