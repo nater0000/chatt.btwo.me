@@ -39,7 +39,7 @@ class TextGenerationPipeline {
       progress_callback,
     });
 
-	conf ??= AutoConfig.from_pretrained(this.model_id, "genai_config.json");
+	conf ??= AutoConfig.from_pretrained("lokinfey/DeepSeek-R1-Distill-Qwen-7B-INT4-ONNX/genai_config.json");
     //this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
     this.model ??= AutoModelForCausalLM.from_config(conf, {
       //dtype: "auto", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
