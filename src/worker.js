@@ -3,7 +3,7 @@ import {
   AutoModelForCausalLM,
   TextStreamer,
   InterruptableStoppingCriteria,
-  PretrainedConfig,
+  AutoConfig,
 } from "@huggingface/transformers";
 
 /**
@@ -39,12 +39,12 @@ class TextGenerationPipeline {
       progress_callback,
     });
 
-	//conf = PretrainedConfig.from_pretrained({config_file_name: "genai_config.json"});
-    this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, config_file_name="genai_config.json", {
-      dtype: "auto", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
+	conf ??= AutoConfig.from_pretrained(this.model_id, "genai_config.json");
+    //this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
+    this.model ??= AutoModelForCausalLM.from_pretrained(conf, {
+      //dtype: "auto", // auto, fp32, fp16, q8, int8, uint8, q4, bnb4, q4f16
       device: "webgpu",
       progress_callback,
-	  //config: conf,
     });
 
     return Promise.all([this.tokenizer, this.model]);
