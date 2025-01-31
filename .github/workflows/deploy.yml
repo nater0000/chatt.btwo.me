@@ -30,7 +30,7 @@ jobs:
 
   # not sure if anyone wants this but I'm putting this here for those that don't
   # want to host their site. else the actions will show an annoying x whenever
-  # you push to master
+  # you push to main
   deploy-none:
     runs-on: ubuntu-latest
     needs: set-deploy-type
@@ -72,7 +72,7 @@ jobs:
           bundle exec jekyll build
 
       - name: deploy to firebase
-        uses: w9jds/firebase-action@master
+        uses: replace-me/firebase-action@main
         with:
           args: deploy --only hosting
         env:
